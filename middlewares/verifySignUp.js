@@ -27,7 +27,7 @@
             })
         }
 
-        if (req.body.password) {
+        if (!req.body.password) {
             return res.status(400).send({
                 message: "Failed ! Password is not provided"
             })
@@ -52,7 +52,7 @@
             });
         }
 
-        if (req.body.userType == constant.userType.user) {
+        if (req.body.userType == constant.userTypes.customer) {
             return res.status(400).send({
                 message: "User registartion is not allowed"
             })

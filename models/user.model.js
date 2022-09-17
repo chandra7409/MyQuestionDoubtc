@@ -28,15 +28,17 @@ const userSchema = mongoose.Schema({
     userStatus: {
         type: String,
         required: true,
-        default: constant.usertype.user,
-        enum: [constant.usertype.COMPLETE,
-            constant.usertype.INCOMPLETE
+        default: constant.userTypes.customer,
+        enum: [constant.userTypes.COMPLETE,
+            constant.userTypes.INCOMPLETE
 
         ],
     },
-    usertype: {
+    userType: {
         type: String,
-        default: "user"
+        required: true,
+        default: constant.userTypes.customer,
+        enum: [constant.userTypes.customer, constant.userTypes.admin]
     },
 
 }, { timestamps: true, versionKey: false })

@@ -3,7 +3,8 @@ module.exports = {
         compelete: "COMPELETE",
         incompelete: "INCOMPELETE"
     },
-    usertype: {
-        user: "USER"
+    userTypes: {
+        user: "CUSTOMER",
+        admin: "ADMIN"
     }
 }

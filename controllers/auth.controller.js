@@ -14,22 +14,16 @@ exports.signup = async(req, res) => {
     /**
      * Inside the sign up call
      */
-    var userStatus = req.body.userSatus;
-    if (!req.body.userSatus) {
-        if (!req.body.userType || req.body.userType == constants.userType.user) {
-            userStatus = constants.userStatus.compelete;
-        } else {
-            userStatus = constants.userStatus.incompelete;
-        }
+    if (req.body.userType != constants.userTypes.customer) {
+        req.body.userStatus = constants.userStatus.incompelete;
     }
-
     const userObj = {
         name: req.body.name,
         userId: req.body.userId,
         email: req.body.email,
         userType: req.body.userType,
         password: bcrypt.hashSync(req.body.password, 8),
-        userStatus: userStatus
+        userStatus: req.bidy.userStatus
     }
 
     try {
@@ -40,8 +34,8 @@ exports.signup = async(req, res) => {
             email: userCreated.email,
             userTypes: userCreated.userType,
             userStatus: userCreated.userStatus,
-            // createdAt: userCreated.createdAt,
-            // updatedAt: userCreated.updatedAt
+            createdAt: userCreated.createdAt,
+            updatedAt: userCreated.updatedAt
         }
         res.status(201).send(postResponse);
     } catch (err) {
