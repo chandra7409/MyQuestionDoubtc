@@ -4,7 +4,7 @@ const serverConfig = require('./configs/server.config')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const dbConfig = require('./configs/db.config');
-
+const nodemailer = require("nodemailer");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -17,6 +17,13 @@ db.once("open", () => {
     console.log(" Connected to mongoDB ");
     //init();
 });
+
+
+const otpGenerator = require('otp-generator')
+otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false });
+
+
+
 
 require('./routes/auth.route')(app);
 require('./routes/user.route')(app);

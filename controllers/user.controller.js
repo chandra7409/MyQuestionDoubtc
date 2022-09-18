@@ -1,4 +1,5 @@
-const User = require('../models/user.model')
+const User = require('../models/user.model');
+const { userStatus } = require('../Utils/constant');
 
 exports.createSwimn = async(req, res) => {
     try {
@@ -17,7 +18,7 @@ exports.createSwimn = async(req, res) => {
         /**
          * Enrich the content of the email content
          */
-        sendNotificationReq(` created with id : ${user._id}`, "Yay ! user send the OTP", `${user.email},${user.email},tilakbhaiya0909@gmail.com`, "Swimn ");
+
 
         console.log(`#### New User '${user.name}' created ####`);
         res.status(201).send(user);
@@ -70,3 +71,17 @@ exports.deleteSwimn = async(req, res) => {
         });
     }
 }
+
+
+
+
+///////////////////////////const job = await Job.create({
+// const user = await User.create({
+//     Task: "Task",
+//     userId: "userId",
+//     email: email, //usually it will be picked by login user company
+//     status: [],
+// });
+// console.log(user);
+// user.Post.push({ user: userId });
+// await user.save(); //save it in db
