@@ -5,7 +5,7 @@
 
 // Note : All These APIs must be accessible only by logged in Users. Give necessary error messages. For testing, set an automatic session time out of 30 seconds. Session Invalid Error Notifications should also be displayed.
 
-// sir pls check the authController and related to models  sir pls According to Question 
+// sir pls check the authController and related to models and sir some error in thee middleware   sir pls According to Question 
 
 const User = require('../models/user.model');
 const USEROTP = require('../models/UserOtp.js');
